@@ -1,0 +1,464 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sci-Fi Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Sci-Fi Dark Theme */
+    --background: 225 100% 2%;
+    --foreground: 180 100% 95%;
+
+    /* Holographic Elements */
+    --card: 225 100% 2%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 225 50% 8%;
+    --popover-foreground: 180 100% 90%;
+
+    /* Cyan Primary Theme */
+    --primary: 180 100% 50%;
+    --primary-foreground: 225 100% 5%;
+
+    /* Secondary Electric Blue */
+    --secondary: 200 100% 15%;
+    --secondary-foreground: 180 100% 85%;
+
+    /* Muted Holographic */
+    --muted: 225 50% 8%;
+    --muted-foreground: 180 50% 65%;
+
+    /* Accent Glow */
+    --accent: 180 100% 20%;
+    --accent-foreground: 180 100% 95%;
+
+    /* Error State */
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 180 100% 95%;
+
+    /* Interface Elements */
+    --border: 180 50% 25%;
+    --input: 225 50% 8%;
+    --ring: 180 100% 50%;
+
+    /* Custom Sci-Fi Colors */
+    --neon-cyan: 180 100% 50%;
+    --electric-blue: 200 100% 60%;
+    --hologram-glow: 180 100% 70%;
+    --grid-line: 180 30% 15%;
+    --container-glass: 180 50% 10%;
+
+    /* Gradients */
+    --gradient-hologram: linear-gradient(135deg, hsl(180 100% 50% / 0.1), hsl(200 100% 60% / 0.05));
+    --gradient-glow: radial-gradient(circle, hsl(180 100% 50% / 0.3), transparent 70%);
+    --gradient-border: linear-gradient(90deg, transparent, hsl(180 100% 50%), transparent);
+
+    /* Shadows & Effects */
+    --shadow-neon: 0 0 20px hsl(180 100% 50% / 0.5);
+    --shadow-container: 0 8px 32px hsl(180 100% 50% / 0.15);
+    --glow-text: 0 0 10px hsl(180 100% 70% / 0.8);
+
+    /* Animation Timings */
+    --animation-fast: 0.2s;
+    --animation-normal: 0.5s;
+    --animation-slow: 1s;
+    --animation-ultra-slow: 2s;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Orbitron', 'Courier New', monospace;
+  }
+
+  /* Custom Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(225 100% 2%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(180 100% 50%), hsl(200 100% 60%));
+    border-radius: 4px;
+    box-shadow: 0 0 10px hsl(180 100% 50% / 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(180 100% 60%), hsl(200 100% 70%));
+    box-shadow: 0 0 15px hsl(180 100% 50% / 0.8);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: hsl(225 100% 2%);
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(180 100% 50%) hsl(225 100% 2%);
+  }
+}
+
+@layer components {
+  /* Central Holographic Screen */
+  .holo-screen {
+    @apply relative backdrop-blur-md border border-primary/40 rounded-2xl;
+    background: linear-gradient(135deg, 
+      hsl(180 100% 50% / 0.05), 
+      hsl(200 100% 60% / 0.02),
+      hsl(180 100% 50% / 0.05)
+    );
+    box-shadow: 
+      0 0 50px hsl(180 100% 50% / 0.3),
+      inset 0 0 50px hsl(180 100% 50% / 0.1);
+  }
+
+  .holo-screen::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl;
+    background: linear-gradient(45deg, transparent 30%, hsl(180 100% 50% / 0.1) 50%, transparent 70%);
+    animation: holo-scan 3s linear infinite;
+  }
+
+  /* Command Center Layout */
+  .command-center {
+    @apply grid gap-4 min-h-screen p-4;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  /* Responsive Grid Layout */
+  @media (min-width: 768px) {
+    .command-center {
+      @apply gap-6 p-6;
+      grid-template-columns: 200px 1fr 200px;
+      grid-template-rows: 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .command-center {
+      grid-template-columns: 250px 1fr 250px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .command-center {
+      grid-template-columns: 300px 1fr 300px;
+    }
+  }
+
+  .nav-panel {
+    @apply space-y-4 order-3;
+  }
+
+  @media (min-width: 768px) {
+    .nav-panel {
+      @apply order-1;
+    }
+  }
+
+  .main-display {
+    @apply flex flex-col order-1 min-h-0;
+  }
+
+  @media (min-width: 768px) {
+    .main-display {
+      @apply order-2;
+    }
+  }
+
+  .info-panel {
+    @apply space-y-4 order-2;
+  }
+
+  @media (min-width: 768px) {
+    .info-panel {
+      @apply order-3;
+    }
+  }
+
+  /* Advanced Nav Icons */
+  .nav-icon-advanced {
+    @apply relative p-2 rounded-xl border border-primary/20 backdrop-blur-sm transition-all duration-500;
+    background: linear-gradient(135deg, hsl(180 100% 50% / 0.03), hsl(200 100% 60% / 0.01));
+  }
+
+  @media (min-width: 768px) {
+    .nav-icon-advanced {
+      @apply p-4;
+    }
+  }
+
+  .nav-icon-advanced::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500;
+    background: linear-gradient(45deg, hsl(180 100% 50% / 0.2), hsl(200 100% 60% / 0.1));
+  }
+
+  .nav-icon-advanced:hover::before,
+  .nav-icon-advanced.active::before {
+    @apply opacity-100;
+  }
+
+  .nav-icon-advanced::after {
+    content: '';
+    @apply absolute -inset-1 rounded-xl opacity-0 transition-opacity duration-500;
+    background: linear-gradient(45deg, hsl(180 100% 50%), hsl(200 100% 60%));
+    z-index: -1;
+    filter: blur(10px);
+  }
+
+  .nav-icon-advanced:hover::after,
+  .nav-icon-advanced.active::after {
+    @apply opacity-30;
+  }
+
+  /* Status Indicators */
+  .status-indicator {
+    @apply flex items-center space-x-2 p-2 rounded-lg border border-primary/20 backdrop-blur-sm;
+    background: hsl(180 100% 50% / 0.05);
+  }
+
+  @media (min-width: 768px) {
+    .status-indicator {
+      @apply p-3;
+    }
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full bg-primary animate-pulse;
+  }
+
+  /* Data Stream Effect */
+  .data-stream {
+    @apply absolute right-0 top-0 w-px bg-gradient-to-b from-transparent via-primary to-transparent;
+    height: 100%;
+    animation: data-flow 2s linear infinite;
+  }
+
+  /* HUD Elements */
+  .hud-corner {
+    @apply absolute w-4 h-4 border-primary/60;
+  }
+
+  @media (min-width: 768px) {
+    .hud-corner {
+      @apply w-6 h-6;
+    }
+  }
+
+  .hud-corner.top-left {
+    @apply top-2 left-2 border-t-2 border-l-2;
+  }
+
+  @media (min-width: 768px) {
+    .hud-corner.top-left {
+      @apply top-4 left-4;
+    }
+  }
+
+  .hud-corner.top-right {
+    @apply top-2 right-2 border-t-2 border-r-2;
+  }
+
+  @media (min-width: 768px) {
+    .hud-corner.top-right {
+      @apply top-4 right-4;
+    }
+  }
+
+  .hud-corner.bottom-left {
+    @apply bottom-2 left-2 border-b-2 border-l-2;
+  }
+
+  @media (min-width: 768px) {
+    .hud-corner.bottom-left {
+      @apply bottom-4 left-4;
+    }
+  }
+
+  .hud-corner.bottom-right {
+    @apply bottom-2 right-2 border-b-2 border-r-2;
+  }
+
+  @media (min-width: 768px) {
+    .hud-corner.bottom-right {
+      @apply bottom-4 right-4;
+    }
+  }
+
+  /* Terminal Effect */
+  .terminal-text {
+    @apply font-mono text-xs text-primary/80;
+    text-shadow: 0 0 5px hsl(180 100% 50% / 0.5);
+  }
+
+  @media (min-width: 768px) {
+    .terminal-text {
+      @apply text-sm;
+    }
+  }
+
+  /* Scanning Animation */
+  .scan-line {
+    @apply absolute left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent;
+    animation: scan-vertical 2s ease-in-out infinite;
+  }
+
+  /* Matrix Rain Effect */
+  .matrix-rain {
+    @apply absolute top-0 w-px bg-gradient-to-b from-primary/60 to-transparent;
+    height: 100px;
+    animation: matrix-fall 3s linear infinite;
+  }
+}
+
+@layer utilities {
+  @keyframes holo-scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes data-flow {
+    0% { 
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    50% { 
+      opacity: 1;
+    }
+    100% { 
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes scan-vertical {
+    0%, 100% { 
+      top: 0;
+      opacity: 0;
+    }
+    50% { 
+      top: 50%;
+      opacity: 1;
+    }
+  }
+
+  @keyframes matrix-fall {
+    0% { 
+      transform: translateY(-100px);
+      opacity: 1;
+    }
+    100% { 
+      transform: translateY(calc(100vh + 100px));
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(180 100% 50% / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(180 100% 50% / 0.6);
+    }
+  }
+
+  @keyframes circuit-flow {
+    0% { 
+      background-position: 0% 50%;
+    }
+    100% { 
+      background-position: 200% 50%;
+    }
+  }
+
+  /* Advanced Animation Classes */
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-circuit-flow {
+    animation: circuit-flow 3s linear infinite;
+  }
+
+  .animate-holo-scan {
+    animation: holo-scan 3s linear infinite;
+  }
+
+  .animate-data-flow {
+    animation: data-flow 2s linear infinite;
+  }
+
+  .animate-matrix-fall {
+    animation: matrix-fall 3s linear infinite;
+  }
+}
