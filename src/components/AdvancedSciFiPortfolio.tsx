@@ -92,7 +92,7 @@ const sections: Section[] = [
     icon: Mail,
     content: [
       'EMAIL: abhijeetsoren222@gmail.com',
-      'PHONE: +91-9777837771',
+      'PHONE: +91-9348957556',
       'LINKEDIN: https://www.linkedin.com/in/abhijeet-soren-a7654b2b5/',
       'PROJECTS: VigilloT & CodeCrafter (Live Demos Available)',
       'AVAILABILITY: Open for collaboration and opportunities',
