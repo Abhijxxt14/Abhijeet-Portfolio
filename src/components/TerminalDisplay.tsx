@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 
+// Using sci-fi themed terminal commands instead of real system commands
+// to avoid exposing any potentially sensitive system information
 const terminalCommands = [
-  'system_core.initialize()',
-  'network_link.establish()',
-  'hologram.render()',
-  'security.scan()',
-  'data.synchronize(98.7%)',
-  'system.status.operational'
+  'initialize_portfolio.sequence()',
+  'rendering_interface.start()',
+  'activate_holographic_display()',
+  'security_protocols.engage()',
+  'connect_neural_network(95.2%)',
+  'portfolio_system.online()'
 ];
 
 export const TerminalDisplay = () => {
@@ -14,9 +16,12 @@ export const TerminalDisplay = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    // Using a randomly selected subset of commands each time to vary the display
+    const selectedCommands = [...terminalCommands].sort(() => 0.5 - Math.random()).slice(0, 4);
+    
     const interval = setInterval(() => {
-      if (currentIndex < terminalCommands.length) {
-        setCommands(prev => [...prev, terminalCommands[currentIndex]]);
+      if (currentIndex < selectedCommands.length) {
+        setCommands(prev => [...prev, selectedCommands[currentIndex]]);
         setCurrentIndex(prev => prev + 1);
       } else {
         // Reset after all commands are shown
@@ -40,14 +45,14 @@ export const TerminalDisplay = () => {
       </div>
       
       <div className="space-y-1 h-24 md:h-32 overflow-hidden">
-        <div className="terminal-text">abhijeet@portfolio-system:~$</div>
+        <div className="terminal-text">visitor@portfolio:~$</div>
         {commands.map((command, index) => (
           <div key={index} className="terminal-text animate-pulse truncate">
             {'> '}{command}
           </div>
         ))}
         <div className="terminal-text animate-typing">
-          {currentIndex < terminalCommands.length && '> _'}
+          {currentIndex < commands.length && '> _'}
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { SciFiContainer } from './SciFiContainer';
 import { TypingText } from './TypingText';
 import { StatusPanel } from './StatusPanel';
 import { TerminalDisplay } from './TerminalDisplay';
+import { SecureContent } from './SecureContent';
 import sciFiBackground from '@/assets/sci-fi-background.jpg';
 
 interface Section {
@@ -260,6 +261,7 @@ export const AdvancedSciFiPortfolio = () => {
                                 speed={20}
                                 delay={2000 + (itemIndex * 600)}
                                 showCursor={false}
+                                secureLinks={true}
                               />
                             </div>
                           </div>

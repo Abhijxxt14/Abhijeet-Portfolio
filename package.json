@@ -8,7 +8,10 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "security-check": "npm audit",
+    "security-fix": "npm audit fix",
+    "update-deps": "npm update"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
