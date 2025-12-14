@@ -1,7 +1,7 @@
-import { AdvancedSciFiPortfolio } from '@/components/AdvancedSciFiPortfolio';
+import { DialPortfolio } from '@/components/DialPortfolio';
 
 const Index = () => {
-  return <AdvancedSciFiPortfolio />;
+  return <DialPortfolio />;
 };
 
 export default Index;
