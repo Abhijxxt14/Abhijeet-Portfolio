@@ -53,26 +53,26 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="h-full flex flex-col p-8 overflow-hidden">
+    <div className="h-full flex flex-col p-4 md:p-8 overflow-hidden">
       {/* Header */}
-      <div className="flex items-center space-x-4 border-b border-primary/30 pb-6 mb-6">
+      <div className="flex items-center space-x-3 md:space-x-4 border-b border-primary/30 pb-4 md:pb-6 mb-4 md:mb-6">
         <div className="relative">
           <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full" />
-          <div className="relative w-16 h-16 rounded-full border-2 border-primary bg-background/80 flex items-center justify-center">
-            <Mail className="w-8 h-8 text-primary animate-pulse-glow" />
+          <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-primary bg-background/80 flex items-center justify-center">
+            <Mail className="w-6 h-6 md:w-8 md:h-8 text-primary animate-pulse-glow" />
           </div>
         </div>
-        <div className="flex-1">
-          <h2 className="text-3xl font-orbitron font-bold hologram-text mb-1">
+        <div className="flex-1 min-w-0">
+          <h2 className="text-xl md:text-3xl font-orbitron font-bold hologram-text mb-1 truncate">
             <TypingText text="COMMUNICATION PROTOCOLS" speed={50} delay={200} />
           </h2>
-          <p className="text-sm text-primary/70 font-tech">
+          <p className="text-xs md:text-sm text-primary/70 font-tech truncate">
             <TypingText text="Quantum Channel Access" speed={30} delay={1000} />
           </p>
         </div>
-        <div className="text-right">
+        <div className="text-right flex-shrink-0">
           <div className="text-xs font-orbitron text-primary/50 mb-1">SECTION</div>
-          <div className="text-3xl font-orbitron font-bold text-primary">07</div>
+          <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">07</div>
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import { ContentPanel } from './ContentPanel';
 import { ContactForm } from './ContactForm';
 import { TypingText } from './TypingText';
 import { GlitchEffect } from './GlitchEffect';
+import { MobileNav } from './MobileNav';
 import sciFiBackground from '@/assets/sci-fi-background.jpg';
 
 interface Section extends DialSection {
@@ -162,16 +163,16 @@ export const DialPortfolio = () => {
       {/* Main Container */}
       <div className="relative z-10 h-full flex flex-col">
         {/* Header */}
-        <div className="relative px-8 py-6 border-b border-primary/20">
+        <div className="relative px-4 md:px-8 py-4 md:py-6 border-b border-primary/20">
           <div className="hud-corner top-left"></div>
           <div className="hud-corner top-right"></div>
           
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-orbitron font-black hologram-text animate-text-glow">
+            <div className="flex-1 pr-4 md:pr-0">
+              <h1 className="text-lg md:text-3xl font-orbitron font-black hologram-text animate-text-glow">
                 <TypingText text="ABHIJEET SOREN - PORTFOLIO SYSTEM" speed={60} />
               </h1>
-              <div className="text-primary/80 font-tech text-sm mt-1">
+              <div className="text-primary/80 font-tech text-xs md:text-sm mt-1">
                 <TypingText
                   text="// DEVELOPER & ENTHUSIAST //"
                   speed={30}
@@ -180,7 +181,7 @@ export const DialPortfolio = () => {
               </div>
             </div>
             
-            <div className="flex items-center space-x-4 text-xs font-mono">
+            <div className="hidden lg:flex items-center space-x-4 text-xs font-mono">
               <span className="flex items-center space-x-2">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
                 <span className="text-green-400">ONLINE</span>
@@ -199,8 +200,8 @@ export const DialPortfolio = () => {
 
         {/* Content Area */}
         <div className="flex-1 flex overflow-hidden">
-          {/* Left Panel - Circular Dial */}
-          <div className="w-[40%] border-r border-primary/20 relative">
+          {/* Left Panel - Circular Dial (Hidden on Mobile) */}
+          <div className="hidden lg:flex lg:w-[40%] border-r border-primary/20 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent" />
             <div className="hud-corner top-left"></div>
             <div className="hud-corner bottom-left"></div>
@@ -239,7 +240,7 @@ export const DialPortfolio = () => {
           </div>
 
           {/* Right Panel - Content Display */}
-          <div className="flex-1 relative">
+          <div className="flex-1 w-full lg:w-auto relative">
             <div className="absolute inset-0 bg-gradient-to-l from-background/50 to-transparent" />
             <div className="hud-corner top-right"></div>
             <div className="hud-corner bottom-right"></div>
@@ -293,6 +294,13 @@ export const DialPortfolio = () => {
           />
         ))}
       </div>
+
+      {/* Mobile Navigation */}
+      <MobileNav 
+        sections={sections}
+        activeSection={activeSection}
+        onSectionChange={handleSectionChange}
+      />
 
       {/* TV Glitch Effect */}
       <GlitchEffect />

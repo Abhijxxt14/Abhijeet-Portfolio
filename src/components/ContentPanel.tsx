@@ -23,36 +23,36 @@ export const ContentPanel = ({ section, sectionIndex }: ContentPanelProps) => {
   }, [section.id]);
 
   return (
-    <div key={key} className="h-full flex flex-col p-8 overflow-hidden">
+    <div key={key} className="h-full flex flex-col p-4 md:p-8 overflow-hidden">
       {/* Header */}
-      <div className="flex items-center space-x-4 border-b border-primary/30 pb-6 mb-6">
+      <div className="flex items-center space-x-3 md:space-x-4 border-b border-primary/30 pb-4 md:pb-6 mb-4 md:mb-6">
         <div className="relative">
           <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full" />
-          <div className="relative w-16 h-16 rounded-full border-2 border-primary bg-background/80 flex items-center justify-center">
-            <Icon className="w-8 h-8 text-primary animate-pulse-glow" />
+          <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-primary bg-background/80 flex items-center justify-center">
+            <Icon className="w-6 h-6 md:w-8 md:h-8 text-primary animate-pulse-glow" />
           </div>
         </div>
-        <div className="flex-1">
-          <h2 className="text-3xl font-orbitron font-bold hologram-text mb-1">
+        <div className="flex-1 min-w-0">
+          <h2 className="text-xl md:text-3xl font-orbitron font-bold hologram-text mb-1 truncate">
             <TypingText text={section.title} speed={50} delay={200} />
           </h2>
           {section.subtitle && (
-            <p className="text-sm text-primary/70 font-tech">
+            <p className="text-xs md:text-sm text-primary/70 font-tech truncate">
               <TypingText text={section.subtitle} speed={30} delay={1000} />
             </p>
           )}
         </div>
-        <div className="text-right">
+        <div className="text-right flex-shrink-0">
           <div className="text-xs font-orbitron text-primary/50 mb-1">SECTION</div>
-          <div className="text-3xl font-orbitron font-bold text-primary">
+          <div className="text-2xl md:text-3xl font-orbitron font-bold text-primary">
             {String(sectionIndex + 1).padStart(2, '0')}
           </div>
         </div>
       </div>
 
       {/* Content Area - Scrollable but styled to fit */}
-      <div className="flex-1 overflow-y-auto custom-scrollbar pr-2">
-        <div className="grid grid-cols-1 gap-4">
+      <div className="flex-1 overflow-y-auto custom-scrollbar pr-1 md:pr-2">
+        <div className="grid grid-cols-1 gap-3 md:gap-4">
           {section.content.map((item, itemIndex) => {
             // Calculate dynamic delays for staggered animation
             const delay = 1500 + (itemIndex * 400);
@@ -69,15 +69,15 @@ export const ContentPanel = ({ section, sectionIndex }: ContentPanelProps) => {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Content Card */}
-                <div className="relative flex items-start space-x-3 p-4 rounded-lg border border-primary/10 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
+                <div className="relative flex items-start space-x-2 md:space-x-3 p-3 md:p-4 rounded-lg border border-primary/10 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
                   {/* Bullet Point */}
-                  <div className="relative mt-2">
-                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    <div className="absolute inset-0 w-2 h-2 rounded-full bg-primary/50 animate-ping" />
+                  <div className="relative mt-1.5 md:mt-2 flex-shrink-0">
+                    <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary animate-pulse" />
+                    <div className="absolute inset-0 w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary/50 animate-ping" />
                   </div>
                   
                   {/* Text Content */}
-                  <div className="flex-1 font-tech text-primary/90 leading-relaxed">
+                  <div className="flex-1 font-tech text-primary/90 leading-relaxed text-xs md:text-base break-words">
                     <TypingText
                       text={item}
                       speed={15}
